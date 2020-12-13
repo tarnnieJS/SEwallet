@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
    
-    <title>LpruX</title>
+    <title>SE Wallet</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/neumorphic-login.css">
@@ -20,7 +20,7 @@
                 <div class="login">
                         <img src="https://firebasestorage.googleapis.com/v0/b/lpru-63421.appspot.com/o/sepayment.png?alt=media&token=af34fe06-1929-4d3e-9f87-844c0f15981a" width="150px" />
                         <div class="title">Administrator</div>
-                        <div class="subtitle">//dfsadd
+                        <div class="subtitle">dawbhjkjbdjhoawikndawlk
 </div>
                         <form action="action_login.php" method="POST" class="column is-half">
                             <div class="field">
