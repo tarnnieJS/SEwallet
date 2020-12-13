@@ -2,13 +2,6 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./SEwallet/css/bulma.css">
 
 <style>
 body {
@@ -26,6 +19,7 @@ body {
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  text-align:center;
 }
 
 .sidenav a {
@@ -35,10 +29,11 @@ body {
   color: #818181;
   display: block;
   transition: 0.3s;
+
 }
 
-.sidenav a:hover {
-  color: #f1f1f1;
+.sidenav a:hover{
+  color: blue;
 }
 
 .sidenav .closebtn {
@@ -53,71 +48,153 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: skyblue;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: green;
+  color: skyblue;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
 </style>
-
-
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand/logo -->
-  <span  style="font-size:30px;cursor:pointer;color:white" onclick="openNav()">&#9776;Menu</span>
-  <div class="container">
-  <div id="mySidenav" class="sidenav">
+<div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
+  <a href="index.php">หน้าแรก</a>
   <a href="#">Services</a>
   <a href="#">Clients</a>
   <a href="#">Contact</a>
-  <br>
-  <a href="login/login.php" class="login-btn">
-         <center> 
-         <button class="login-btn" style="font-size:24px;color:green"><i class="fa fa-user-circle">Login</i></button>
-         </center>
-  </a>
 </div>
-</div>
-</div>  
-</nav>
 
 
-<body>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
 
 <div class="container">
-  <h2>Add Data</h2>
+  <form action="/action_page.php">
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">รหัสนักศึกษา</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="firstname" placeholder="Your ID..">
+    </div>
+  </div>
   
-  <form class="form" action="/action_page.php">
-    <label for="email2" class="mb-2 mr-sm-2">รหัสนักศึกษา:</label>
-    <input type="text" class="form-control mb-2 mr-sm-2" id="id" placeholder="59122660" name="email">
-    <label for="pwd2" class="mb-2 mr-sm-2">Submajor:</label>
-    <input type="text" class="form-control mb-2 mr-sm-2" id="submajor" placeholder="59" name="pswd">
-    <label for="pwd2" class="mb-2 mr-sm-2">ชื่อ-นามสกุล:</label>
-    <input type="text" class="form-control mb-2 mr-sm-2" id="name" placeholder="Enter Name" name="pswd">
-    <label for="pwd2" class="mb-2 mr-sm-2">ชั้นปี:</label>
-    <input type="text" class="form-control mb-2 mr-sm-2" id="year" placeholder="4" name="pswd"><br>
-    
-    
-    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+  <div class="row">
+    <div class="col-25">
+      <label for="country">Submajor</label>
+    </div>
+    <div class="col-75">
+      <select id="country" name="country">
+        <option value="59">59</option>
+        <option value="58">58</option>
+        <option value="57">57</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">ชื่อ-นามสกุล</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="name" name="name" placeholder="Your name..">
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-25">
+      <label for="country">ชั้นปี</label>
+    </div>
+    <div class="col-75">
+      <select id="country" name="country">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+         <option value="4">4</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="subject">Subject</label>
+    </div>
+    <div class="col-75">
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <input type="submit" value="Submit">
+  </div>
   </form>
 </div>
-
-</body>
-</html>
-
 <script>
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("mySidenav").style.width = "100%";
 }
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 </script>
- <script src="./wallet/plugins/jquery/jquery.min.js"></script>  
-
- <script src="./wallet/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-
+   
 </body>
 </html> 
