@@ -8,7 +8,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./SEwallet/css/bulma.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+   
 
 <style>
 body {
@@ -62,7 +64,7 @@ body {
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
   <span  style="font-size:30px;cursor:pointer;color:white" onclick="openNav()">&#9776;Menu</span>
-  <div class="container">
+  <div class="container columns">
   <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">About</a>
@@ -80,10 +82,12 @@ body {
 </div>  
 </nav>
 
-
-<body>
-
-<div class="container">
+<section class="section  ">
+<div class=" container is-max-desktop ">
+<div class="columns">
+  <div class="column">
+  </div>
+  <div class="column is-four-fifths ">
   <h2>Add Data</h2>
   
   <form class="form" action="/action_page.php">
@@ -99,10 +103,12 @@ body {
     
     <button type="submit" class="btn btn-primary mb-2">Submit</button>
   </form>
+  </div>
 </div>
+ 
+</div>
+</section>
 
-</body>
-</html>
 
 <script>
 function openNav() {
