@@ -20,16 +20,31 @@ session_start();
                       $_SESSION["Fullname"] = $row["Fullname"];
                       
 
-                      if($_SESSION["Userlevel"]=="User"){ 
+                      if($_SESSION["Userlevel"]=="User"){   //สิทธิ์ user ดูได้อย่างเดียว
 
                         Header("Location: ../user/paymentStatus.php");
 
                       }
 
-                      if ($_SESSION["Userlevel"]=="Admin"){  
+                      if ($_SESSION["Userlevel"]=="Admin"){   //สิทธิ์ admin ในการ manage
                       
                       Header("Location: ../admin/manageUser.php");
+                      
+                      
                       }
+                      if ($_SESSION["Userlevel"]=="Admin"){  
+                      
+                        Header("Location: ../admin/adddata.php"); //สิทธิ์ admin ในการ เพิ่มข้อมูล
+                        
+                        
+                        }
+
+                        if ($_SESSION["Userlevel"]=="Admin"){  
+                      
+                          Header("Location: ../admin/indexad.php");
+                          
+                          
+                          }
 
                   }else{
                     echo "<script>";
@@ -42,7 +57,8 @@ session_start();
         }else{
 
 
-             Header("Location: index.php"); //user & password incorrect back to login again
+             Header("Location: indexad.php"); //user & password incorrect back to login again
 
         }
+      
 ?>

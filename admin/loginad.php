@@ -19,7 +19,7 @@
                 <div class="card content ">
                 <div class="login">
                         <img src="https://firebasestorage.googleapis.com/v0/b/lpru-63421.appspot.com/o/sepayment.png?alt=media&token=af34fe06-1929-4d3e-9f87-844c0f15981a" width="150px" />
-                        <div class="title">Welcome To SE-Payment</div>
+                        <div class="title">Administrator</div>
                         <div class="subtitle">
 </div>
                         <form action="action_login.php" method="POST" class="column is-half">
