@@ -24,6 +24,7 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="indexad.php">หน้าแรก</a>
     <a href="manageUser.php">จัดการข้อมูล</a>
+    <a href="addstatus.php">เพิ่มUser</a>
     <a href="#">ตรวจสอบ</a>
     <br><br>
   <a href="../logout.php" class="login-btn">

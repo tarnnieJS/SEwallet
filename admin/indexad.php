@@ -24,6 +24,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="adddata.php">เพิ่มข้อมูล</a>
   <a href="manageUser.php">จัดการข้อมูล</a>
+  <a href="addstatus.php">เพิ่มUser</a>
   <a href="#">ตรวจสอบ</a>
   
   <br>
