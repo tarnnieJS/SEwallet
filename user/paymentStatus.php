@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>SE Payment</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -14,45 +15,47 @@
 
 
 </head>
+
 <body>
-  
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand/logo -->
-  <span  style="font-size:30px;cursor:pointer;color:white" onclick="openNav()">&#9776;Menu</span>
-  
-</nav>
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">ตรวจสอบสถานะ</a>
-  
-  <br>
-  <a href="../logout.php" class="login-btn">
-         <center> 
-         <button class="login-btn" style="font-size:24px;color:red"><i class="fa fa-user-circle">Logout</i></button>
-         </center>
-         
-  </a>
-</div>
- 
-<div id="main">
-  <h2>Sidenav Push Example</h2>
-  <p>PAYMENT</p>
-  
-</div>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand/logo -->
+    <span style="font-size:30px;cursor:pointer;color:white" onclick="openNav()">&#9776;Menu</span>
+
+  </nav>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
 
+    <br>
+    <a href="../logout.php" class="logout-btn">
+      <center>
+        <button class="logout-btn" style="font-size:24px;color:red"><i class="fa fa-user-circle">Logout</i></button>
+      </center>
 
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-}
+    </a>
+  </div>
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-}
-</script>
+  <div id="main">
+    <h2>Report</h2>
    
+
+  </div>
+
+
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+    }
+  </script>
+
 </body>
-</html> 
+
+</html>
