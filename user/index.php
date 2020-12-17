@@ -114,9 +114,9 @@ $mysqli->close();
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-light">
-            Log in
+        <div class="button is-danger">
+          <a class="button is-danger" href="../logout.php"  class="button is-light">
+            Log out
           </a>
         </div>
       </div>
@@ -133,7 +133,7 @@ $mysqli->close();
     <div class="container">
 
       <h1 class="title">
-        เพิ่มข้อมูลนักศึกษา
+        สร้างรายการเก็บเงิน
       </h1>
       <button class=" button is-link" type="button" data-toggle="modal" data-target="#assignModal">เพิ่มข้อมูล</button>
       <div class="columns">

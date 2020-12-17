@@ -23,7 +23,7 @@ session_start();
 
                       if($_SESSION["Userlevel"]=="User"){   //สิทธิ์ user ดูได้อย่างเดียว
 
-                        Header("Location: ../user/paymentStatus.php");
+                        Header("Location: ../user");
 
                       }
 
