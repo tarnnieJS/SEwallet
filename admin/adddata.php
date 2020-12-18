@@ -12,7 +12,7 @@
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./SEwallet/css/bulma.css">
-  <link rel="stylesheet" href="stylesad.css">
+  <link rel="stylesheet" href="css/stylesad.css">
 </head>
 
 <body>
@@ -37,21 +37,21 @@
   <!-- content -->
   <div id="main">
     <div class="container">
-      <form action="/action_page.php">
+      <form action="processad.php" method="$_POST">
         <div class="row">
           <div class="col-25">
-            <label for="std_id">รหัสนักศึกษา</label>
+            <label for="studentid">รหัสนักศึกษา</label>
           </div>
           <div class="col-25">
-            <input type="text" id="std_id" name="std_id" placeholder="Your ID..">
+            <input type="text" id="studentid" name="std_id" placeholder="Your ID..">
           </div>
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="codeyears">Submajor</label>
+            <label for="submajor">Submajor</label>
           </div>
           <div class="col-25">
-            <select id="codeyears" name="codeyears">
+            <select id="submajor" name="codeyears">
               <option value="59">59</option>
               <option value="58">58</option>
               <option value="57">57</option>
@@ -60,10 +60,10 @@
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="flname">ชื่อ-นามสกุล</label>
+            <label for="fullname">ชื่อ-นามสกุล</label>
           </div>
           <div class="col-25">
-            <input type="text" id="flname" name="flname" placeholder="Your name..">
+            <input type="text" id="fullname" name="flname" placeholder="Your name..">
           </div>
         </div>
         <div class="row">
@@ -71,7 +71,7 @@
             <label for="years">ชั้นปี</label>
           </div>
           <div class="col-25">
-            <select id="years" name="years">
+            <select id="years" name="clyears">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -84,7 +84,7 @@
             <label for="activitys">กิจกรรม</label>
           </div>
           <div class="col-25">
-            <select id="activitys" name="activitys">
+            <select id="activitys" name="activities">
               <option value="1">กิจกรรมรับน้อง</option>
               <option value="2">กิจกรรมกีฬาสีภายในสาขา</option>
               <option value="3">กิจกรรมวันไหว้ครู</option>
@@ -94,10 +94,10 @@
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="pmact">ค่ากิจกรรม</label>
+            <label for="payment">ค่ากิจกรรม</label>
           </div>
           <div class="col-25">
-            <input type="text" id="pmact" name="pmact" placeholder="ระบุจำนวน..">
+            <input type="text" id="payment" name="pmact" placeholder="ระบุจำนวน..">
           </div>
         </div>
         <div class="row">
@@ -109,7 +109,7 @@
           </div>
         </div>
         <div class="row">
-          <input type="submit" value="Submit">
+          <input type="submit" value="เพิ่มข้อมูล">
         </div>
       </form>
     </div>

@@ -11,7 +11,7 @@
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./SEwallet/css/bulma.css">
-  <link rel="stylesheet" href="stylesst.css">
+  <link rel="stylesheet" href="css/stylesst.css">
 
 
 </head>
@@ -46,10 +46,10 @@
     <div class="container">
       <form action="/action_page.php">
         <label for="Username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Username..">
+        <input type="text"  name="username" placeholder="Username..">
 
         <label for="password">Password</label>
-        <input type="text" id="password" name="password" placeholder="Your Password..">
+        <input type="text"  name="password" placeholder="Your Password..">
 
         <label for="status">Status</label>
         <select id="status" name="status">
@@ -57,7 +57,7 @@
           <option value="user">User</option>
         </select> <br><br><br>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="ปรับใช้">
       </form>
     </div>
 
