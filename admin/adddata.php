@@ -1,27 +1,21 @@
 <?php session_start(); ?>
 <?php 
   
-// Username is root 
 $user = 'root'; 
 $password = '';  
   
-// Database name is gfg 
 $database = 'wallet';  
   
-// Server is localhost with 
-// port number 3308 
 $servername='localhost'; 
 $mysqli = new mysqli($servername, $user,  
                 $password, $database); 
   
-// Checking for connections 
 if ($mysqli->connect_error) { 
     die('Connect Error (' .  
     $mysqli->connect_errno . ') '.  
     $mysqli->connect_error); 
 } 
-  
-// SQL query to select data from database 
+
 $sql = "SELECT * FROM student  "; 
 $result = $mysqli->query($sql); 
 $mysqli->close();  
@@ -259,21 +253,6 @@ $mysqli->close();
       </div>
     </div>
   </div>
-
-
   </body>
-
 </html>
 
-
-  <script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
-    }
-
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      document.getElementById("main").style.marginLeft = "0";
-    }
-  </script>

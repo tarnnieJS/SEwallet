@@ -29,7 +29,7 @@ if ($num > 0) {
 } else {
 
 	$sql = "INSERT INTO student (id, student_id,firstname ,lastname ,class  )
-VALUES (NULL, '$StdID','$_POST[firstname]', '$_POST[lastname]', '$_POST[class]')";
+    VALUES (NULL, '$StdID','$_POST[firstname]', '$_POST[lastname]', '$_POST[class]')";
 
 	$result = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_connect_error());
 }

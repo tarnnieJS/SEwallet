@@ -33,20 +33,6 @@ session_start();
                       
                       
                       }
-                      if ($_SESSION["Userlevel"]=="Admin"){  
-                      
-                        Header("Location: ../admin/adddata.php"); //สิทธิ์ admin ในการ เพิ่มข้อมูล
-                        
-                        
-                      }
-
-                      if ($_SESSION["Userlevel"]=="Admin"){  
-                      
-                        Header("Location: ../admin/indexad.php");
-                          
-                          
-                      }
-
                   }else{
                     echo "<script>";
                         echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 
