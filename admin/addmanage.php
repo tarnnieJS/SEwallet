@@ -1,23 +1,33 @@
 <?php session_start(); ?>
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "wallet";
+<?php 
+  
+// Username is root 
+$user = 'root'; 
+$password = '';  
+  
+// Database name is gfg 
+$database = 'wallet';  
+  
+// Server is localhost with 
+// port number 3308 
+$servername='localhost'; 
+$mysqli = new mysqli($servername, $user,  
+                $password, $database); 
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$conn -> set_charset("utf8");
-$sql = "SELECT * FROM student";
-$result = $conn->query($sql);
 
-
-$conn->close();
-?>
+// Checking for connections 
+if ($mysqli->connect_error) { 
+    die('Connect Error (' .  
+    $mysqli->connect_errno . ') '.  
+    $mysqli->connect_error); 
+} 
+  
+// SQL query to select data from database 
+$mysqli-> set_charset("utf8");
+$sql = "SELECT * FROM manage "; 
+$result = $mysqli->query($sql); 
+$mysqli->close();  
+?> 
 <!DOCTYPE html>
 <html>
 
@@ -82,12 +92,11 @@ $conn->close();
   }
 </style>
 
-
 <body>
   <div class="sidenav">
     <a href="indexad.php">หน้าแรก</a>
+    <a href="adddata.php">เพิ่มข้อมูลนักศึกษา</a>
     <a href="manageUser.php">รายชื่อผู้ดูแลระบบ</a>
-    <a href="addmanage.php">เพิ่มผู้ดูแลระบบ</a>
     
 
     <br>
@@ -135,7 +144,7 @@ $conn->close();
     <div class="container">
 
       <h1 class="title">
-        ข้อมูลนักศึกษา
+        ข้อมูลผู้ดูแลระบบ
       </h1>
       <button class=" button is-link" type="button" data-toggle="modal" data-target="#assignModal">เพิ่มข้อมูล</button>
       <div class="columns">
@@ -146,7 +155,7 @@ $conn->close();
          
               <header class="card-header">
                   <p class="card-header-title">
-                    รายชื่อข้อมูลของนักศึกษา
+                    รายชื่อข้อมูลของผู้ดูแลระบบ
                   </p>
                 </header>
                 <div class="card-content">
@@ -154,10 +163,10 @@ $conn->close();
                         <thead>
                           <tr>
                             <th><abbr></abbr></th>
-                            <th>Student ID</th>
-                            <th>First name</th>
-                            <th>Last name</th>
-                            <th>Class</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Fullname</th>
+                            <th>Status</th>
                             <th>Actions</th>
                           </tr>
                         </thead>
@@ -167,11 +176,11 @@ $conn->close();
                 { 
              ?> 
                         <tr>
-                          <td></td>
-                          <td><?php echo $rows['student_id'];?></td>
-                          <td><?php echo $rows['firstname'];?></td>
-                          <td><?php echo $rows['lastname'];?></td>
-                          <td><?php echo $rows['class'];?></td>
+                          <td><?php echo $rows['ID'];?></td>
+                          <td><?php echo $rows['Username'];?></td>
+                          <td><?php echo $rows['Password'];?></td>
+                          <td><?php echo $rows['Fullname'];?></td>
+                          <td><?php echo $rows['Userlevel'];?></td>
                           <td>
                               <a class="button is-small is-primary">View</a>
                               <a class="button is-small is-danger">Delete</a>
@@ -197,18 +206,18 @@ $conn->close();
 
           <div class="card">
             <div class="content">
-              <form action="saveStudent.php" method="POST">
+              <form action="savemanage.php" method="POST">
                 <div class="field">
-                  <label class="label">Student ID</label>
+                  <label class="label">Username</label>
                   <div class="control">
-                    <input required name="student_id" class="input" type="text" placeholder="Student ID"  class="input" type="text" name="student_id" maxlength="11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  />
+                    <input required name="Username" class="input" type="text" placeholder="Username"  class="input" type="text" name="Username" maxlength="11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  />
                   </div>
                 </div>
 
                 <div class="field">
-                  <label class="label">First name</label>
+                  <label class="label">Password</label>
                   <div class="control has-icons-left has-icons-right">
-                    <input required name="firstname" class="input is-success" type="text" placeholder="First name" >
+                    <input required name="Password" class="input is-success" type="text" placeholder="Password" >
                     <span class="icon is-small is-left">
                       <i class="fas fa-user"></i>
                     </span>
@@ -219,9 +228,9 @@ $conn->close();
                 </div>
 
                 <div class="field">
-                  <label class="label">Last name</label>
+                  <label class="label">Fullname</label>
                   <div class="control has-icons-left has-icons-right">
-                    <input  required name="lastname" class="input  is-success" type="text" placeholder="Last name" >
+                    <input  required name="Fullname" class="input  is-success" type="text" placeholder="Fullname" >
                     <span class="icon is-small is-left">
                       <i class="fas fa-user"></i>
                     </span>
@@ -232,14 +241,15 @@ $conn->close();
                 </div>
 
                 <div class="field">
-                  <label class="label">Class</label>
+                  <label class="label">Userlevel</label>
                   <div class="control">
                     <div class="select">
-                      <select name="class">
-                        <option>Class 1</option>
-                        <option>Class 2</option>
-                        <option>Class 3</option>
-                        <option>Class 4</option>
+                      <select name="Userlevel">
+                        <option>Admin</option>
+                        <option>Userชั้นปีที่1</option>
+                        <option>Userชั้นปีที่2</option>
+                        <option>Userชั้นปีที่3</option>
+                        <option>Userชั้นปีที่4</option>
                       </select>
                     </div>
                   </div>

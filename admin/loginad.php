@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <title>SE Payment</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />

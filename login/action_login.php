@@ -6,8 +6,10 @@ session_start();
 				//รับค่า user & password
                   $Username = $_POST['Username'];
                   $Password = $_POST['Password'];
-				//query 
-                  $sql="SELECT * FROM user Where Username='".$Username."' and Password='".$Password."' ";
+				//query   
+                  $sql="SELECT * FROM manage Where Username='".$Username."' and Password='".$Password."' ";
+                  
+                  // $sql="SELECT * FROM user  Where Username='".$Username."' and Password='".$Password."' ";
 
                   $result = mysqli_query($con,$sql);
 				
@@ -23,7 +25,7 @@ session_start();
 
                       if($_SESSION["Userlevel"]=="User"){   //สิทธิ์ user ดูได้อย่างเดียว
 
-                        Header("Location: ../user/paymentStatus.php");
+                        Header("Location: ../user/index.php");
 
                       }
 
@@ -33,20 +35,13 @@ session_start();
                       
                       
                       }
-                      if ($_SESSION["Userlevel"]=="Admin"){  
+                      if ($_SESSION["Userlevel"]=="Admin"){   //สิทธิ์ admin ในการ manage
                       
-                        Header("Location: ../admin/adddata.php"); //สิทธิ์ admin ในการ เพิ่มข้อมูล
+                        Header("Location: ../admin/addmanage.php");
                         
                         
-                      }
-
-                      if ($_SESSION["Userlevel"]=="Admin"){  
+                        }
                       
-                        Header("Location: ../admin/indexad.php");
-                          
-                          
-                      }
-
                   }else{
                     echo "<script>";
                         echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 

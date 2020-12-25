@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 $conn -> set_charset("utf8");
-$sql = "SELECT * FROM student";
+$sql = "SELECT * FROM payment";
 $result = $conn->query($sql);
 
 
@@ -22,8 +22,8 @@ $conn->close();
 <html>
 
 <head>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <title>SE Payment</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -41,7 +41,7 @@ $conn->close();
 
   .sidenav {
     height: 100%;
-    width: 180px;
+    width: 160px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -54,13 +54,13 @@ $conn->close();
   .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 25px;
     color: #818181;
     display: block;
   }
 
   .sidenav a:hover {
-    color: blue;
+    color: #f1f1f1;
   }
 
   .main {
@@ -82,29 +82,17 @@ $conn->close();
   }
 </style>
 
-
 <body>
-  <div class="sidenav">
-    <a href="indexad.php">หน้าแรก</a>
-    <a href="manageUser.php">รายชื่อผู้ดูแลระบบ</a>
-    <a href="addmanage.php">เพิ่มผู้ดูแลระบบ</a>
-    
-
-    <br>
-    <a href="../logout.php" class="login-btn">
-      <center>
-        <button class="login-btn" style="font-size:24px;color:red"><i class="fa fa-user-circle">Logout</i></button>
-      </center>
-
-    </a>
-  </div>
+<div class="sidenav">
+    <a href="report.php">ผู้ค้างชำระ</a>
+</div>
 
   <!-- navbar -->
   <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item">
-        <p class="title">SE  administrator</p>
-      
+        <p class="title">SE Payment</p>
+        
       </a>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -114,15 +102,15 @@ $conn->close();
       </a>
     </div>
 
-    <!-- <div class="navbar-end">
+    <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          <a  class="button is-light" >
-           For manager
+        <div class="button is-danger">
+          <a class="button is-danger" href="../logout.php"  class="button is-light">
+            Log out
           </a>
         </div>
       </div>
-    </div> -->
+    </div>
     </div>
   </nav>
   <!-- content -->
@@ -135,7 +123,7 @@ $conn->close();
     <div class="container">
 
       <h1 class="title">
-        ข้อมูลนักศึกษา
+        รายการผู้ทำการชำระเงิน
       </h1>
       <button class=" button is-link" type="button" data-toggle="modal" data-target="#assignModal">เพิ่มข้อมูล</button>
       <div class="columns">
@@ -146,19 +134,21 @@ $conn->close();
          
               <header class="card-header">
                   <p class="card-header-title">
-                    รายชื่อข้อมูลของนักศึกษา
+                    ค่ากิจกรรมของนักศึกษา
                   </p>
                 </header>
                 <div class="card-content">
                     <table class="table is-fullwidth">
                         <thead>
                           <tr>
-                            <th><abbr></abbr></th>
-                            <th>Student ID</th>
-                            <th>First name</th>
-                            <th>Last name</th>
-                            <th>Class</th>
-                            <th>Actions</th>
+                            <th></th>
+                            <th>รหัสนักศึกษา</th>
+                            <th>ชื่อ</th>
+                            <th>นามสกุล</th>
+                            <th>ชั้นปี</th>
+                            <th>สถานะการขำระ</th>
+                            <th>กิจกรรม</th>
+                            <th>จำนวนเงิน</th>
                           </tr>
                         </thead>
                       <tbody>
@@ -172,6 +162,9 @@ $conn->close();
                           <td><?php echo $rows['firstname'];?></td>
                           <td><?php echo $rows['lastname'];?></td>
                           <td><?php echo $rows['class'];?></td>
+                          <td><?php echo $rows['status'];?></td>
+                          <td><?php echo $rows['activities'];?></td>
+                          <td><?php echo $rows['amount'];?></td>
                           <td>
                               <a class="button is-small is-primary">View</a>
                               <a class="button is-small is-danger">Delete</a>
@@ -197,16 +190,16 @@ $conn->close();
 
           <div class="card">
             <div class="content">
-              <form action="saveStudent.php" method="POST">
+              <form action="saveactivities.php" method="POST">
                 <div class="field">
-                  <label class="label">Student ID</label>
+                  <label class="label">รหัสนักศึกษา</label>
                   <div class="control">
                     <input required name="student_id" class="input" type="text" placeholder="Student ID"  class="input" type="text" name="student_id" maxlength="11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  />
                   </div>
                 </div>
 
                 <div class="field">
-                  <label class="label">First name</label>
+                  <label class="label">ชื่อ</label>
                   <div class="control has-icons-left has-icons-right">
                     <input required name="firstname" class="input is-success" type="text" placeholder="First name" >
                     <span class="icon is-small is-left">
@@ -219,7 +212,7 @@ $conn->close();
                 </div>
 
                 <div class="field">
-                  <label class="label">Last name</label>
+                  <label class="label">นามสกุล</label>
                   <div class="control has-icons-left has-icons-right">
                     <input  required name="lastname" class="input  is-success" type="text" placeholder="Last name" >
                     <span class="icon is-small is-left">
@@ -232,18 +225,46 @@ $conn->close();
                 </div>
 
                 <div class="field">
-                  <label class="label">Class</label>
+                  <label class="label">ชั้นปี</label>
                   <div class="control">
                     <div class="select">
                       <select name="class">
-                        <option>Class 1</option>
-                        <option>Class 2</option>
-                        <option>Class 3</option>
-                        <option>Class 4</option>
+                        <option>ชั้นปีที่ 1</option>
+                        <option>ชั้นปีที่ 2</option>
+                        <option>ชั้นปีที่ 3</option>
+                        <option>ชั้นปีที่ 4</option>
                       </select>
                     </div>
                   </div>
                 </div>
+
+                <div class="field">
+                  <label class="label">สถานะ</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input  required name="status" class="input  is-success" type="text" placeholder="status" >
+                    <span class="icon is-small is-left">
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">ชื่อกิจกรรม</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input  required name="activities" class="input  is-success" type="text" placeholder="Activities" >
+                    <span class="icon is-small is-left">
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">จำนวน:บาท</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input  required name="amount" class="input  is-success" type="text" placeholder="Amount" >
+                    <span class="icon is-small is-left">
+                    </span>
+                  </div>
+                </div>
+
                 <br>
                 <div class="field is-grouped">
                   <div class="control">
